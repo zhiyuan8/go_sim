@@ -1,0 +1,4 @@
+*.o
+*.pro
+*.pro.user
+GO_DAG
