@@ -14,12 +14,19 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
+    cout << "The path to read in json files is:  " << argv[1] << "\n";
+    path_in = argv[1]; // get path where we readin data
+    cout << "The path to write result csv files is:  " << argv[2] << "\n";
+    path_out = argv[2]; // get path where we store final results
+    cout << "The seed used in generating data is:  " << abs ( atoi( argv[3]) ) << "\n";
+    input.seed = abs ( atoi( argv[3]) );
+
     // 1. read in data, intialize all vectors
     startTime = clock(); // begin documenting time
-    read_in_json(json, json_vector, json_length); // get the ID data in json file
-    read_in_json2(readin, decision); // read parameters for simulations
+    read_in_json(path_in, json, json_vector, json_length); // get the ID data in json file
+    read_in_json2(path_in, readin, decision); // read parameters for simulations
     if ( readin.n_reps  >100 )// if data is too large, stop program
     {
         cout<<"please do not output data and delete 'Data' in json file, or decrease 'n_reps' to less than 100" << endl;
@@ -27,8 +34,8 @@ int main()
     }
     create_ID(json, ID, input.col, json_vector, json_length, false);// build the map. If true, then show me all ID
     Initialize_all(readin, input, pValue_ttest, sims_test_statistic, geometric_p_value, sims_result, geo_result, json_vector);// initialize all vectors
-    read_in_json3(self_contained, competitive, json, ID, input, json_vector, json_length, readin);// get self_contained and competitive non-null
-    path = output_path(); // get path where we store final results
+    read_in_json3(path_in, self_contained, competitive, json, ID, input, json_vector, json_length, readin);// get self_contained and competitive non-null
+
 
     // 2. Initialize all dynamic arrays
     sims.FDP = new double [readin.n_regimes*readin.n_reps];
@@ -106,11 +113,11 @@ int main()
             start = std::chrono::high_resolution_clock::now();
             if (decision.matrix)
             {
-                write_out_matrix(data1_temp, data2_temp, input.row_reject, input.col, j+1, path);
+                write_out_matrix(data1_temp, data2_temp, input.row_reject, input.col, j+1, path_out);
             }
             if (decision.NumRej)
             {
-                write_out_rej(sims_result, geo_result, input.row_reject, j+1, path);
+                write_out_rej(sims_result, geo_result, input.row_reject, j+1, path_out);
             }
             finish = std::chrono::high_resolution_clock::now();
             elapsed = finish - start;
@@ -120,7 +127,7 @@ int main()
         show_final_result(hyper, sims, readin.n_reps, position, 1);// show FDR and mean beta of two tests. if 1, show result.
     }
     //write out power, FDP and node-specific power
-    write_out_results(sims,hyper,sims_node_result,hyper_node_result,json_vector,readin.n_regimes,readin.n_reps,position, path);
+    write_out_results(sims,hyper,sims_node_result,hyper_node_result,json_vector,readin.n_regimes,readin.n_reps,position, path_out);
 
     //4. delete dynamic array and show total time
     for (int i=0; i<json_vector; i++)

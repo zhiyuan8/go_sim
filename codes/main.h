@@ -7,7 +7,8 @@
 #include "array_size.h"
 
 // readout paths
-string path;
+string path_in;
+string path_out;
 
 // all variables used before tests
 vector<vector <int> > json;

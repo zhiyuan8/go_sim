@@ -12,27 +12,9 @@
 using namespace std;
 namespace pt = boost::property_tree;
 
-void read_in_json(vector< vector<int> >&json, int &json_vector, vector <int> &json_length)
+void read_in_json(string filename, vector< vector<int> >&json, int &json_vector, vector <int> &json_length)
 {
-    cout<< "please input the path and file name for all gene IDs"<< endl;
-    cout<< "(example: /home/zhiyuan/Desktop/Json_files/meta_gogene_map.json)"<<endl;
-    string filename;
-    bool dec=false;
-    while (dec==false)
-    {
-        cin >> filename;
-        ifstream inFile(filename);
-        if (inFile.fail())
-        {
-            cout << "Could Not Find the File, input path again \n";
-        }
-        else
-        {
-            cout << "The path is valid, continue to next step\n";
-            dec =true;
-            cout << endl;
-        }
-    }
+    filename = filename + "/id.json";
     pt::ptree pt;
     pt::read_json(filename, pt);
     for (pt::ptree::value_type &row : pt)// read in # of vector
@@ -60,28 +42,10 @@ void read_in_json(vector< vector<int> >&json, int &json_vector, vector <int> &js
     }
 }
 
-void read_in_json2(READIN &readin, DECISION & decision)
+void read_in_json2(string filename, READIN &readin, DECISION & decision)
 {
-    cout<< "please input the path and file name for parameters that decide your experiments"<<endl;
-    cout<< "(example: /home/zhiyuan/Desktop/Json_files/meta_restore_params.json)"<<endl;
-    string filename;
+    filename = filename +"/parameter.json";
     string temp;
-    bool dec=false;
-    while (dec==false)
-    {
-        cin >> filename;
-        ifstream inFile(filename);
-        if (inFile.fail())
-        {
-            cout << "Could Not Find the File, input path again \n";
-        }
-        else
-        {
-            cout << "The path is valid, continue to next step\n";
-            dec =true;
-            cout << endl;
-        }
-    }
     pt::ptree pt;
     pt::read_json(filename, pt);
     readin.min_node_size = pt.get<int>("context_params.min_node_size", 0);
@@ -138,29 +102,11 @@ void create_ID(vector< vector<int> >&json, map<int, int> &ID, int &index, int js
     }
 }
 
-void read_in_json3(vector<bool> &json_truth, vector<bool> &json_truth2, vector< vector<int>> json_data,
+void read_in_json3(string filename, vector<bool> &json_truth, vector<bool> &json_truth2, vector< vector<int>> json_data,
     map<int, int> ID, INPUT &input,int json_vector, vector <int> json_length, READIN readin)
 {
     pt::ptree pt;
-    cout<< "please input the path and file name for non-null gene ID"<<endl;
-    cout<< "(example: /home/zhiyuan/Desktop/Json_files/meta_nonnull_gene_ids.json)"<<endl;
-    string filename;
-    bool dec=false;
-    while (dec==false)
-    {
-        cin >> filename;
-        ifstream inFile(filename);
-        if (inFile.fail())
-        {
-            cout << "Could Not Find the File, input path again \n";
-        }
-        else
-        {
-            cout << "The path is valid, continue to next step\n";
-            dec =true;
-            cout << endl;
-        }
-    }
+    filename = filename + "/nonnull_id.json";
     pt::read_json(filename, pt);
     // To store key of rejection
     for (pt::ptree::value_type &keys : pt)
@@ -223,21 +169,6 @@ void read_in_json3(vector<bool> &json_truth, vector<bool> &json_truth2, vector< 
     cout << "There are  " << input.col << " non-repeated index of genes in system" << endl;// check output
     cout << "There are " << json_vector << " genes in system" << endl;// check output
     cout << "n_regimes= " << readin.n_regimes << " n_reps= " << readin.n_reps << endl;// check output
-
-    cout<< "\n please input seed for random data generation (Default value = 100)"<<endl;
-    double seed_in;
-    cin >> seed_in;
-    input.seed = abs ( int (seed_in) );
-    cout<<endl;
-}
-
-string output_path ()
-{
-    cout<< "\n please input the path where you will save your files\n" ;
-    cout<< "(example: /home/zhiyuan/Desktop/Json_files/result) \n";
-    string filename;
-    cin >> filename;
-    return (filename);
 }
 
 void write_out_matrix(double ** data1_temp, double ** data2_temp, int row, int col, int rep, string path)
