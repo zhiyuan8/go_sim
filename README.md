@@ -30,10 +30,11 @@ sudo apt-get install libboost-all-dev
 
 Using ```cd``` to locate at the place where you will store the codes. Download the codes on github.
 ```
-git clone --https://github.com/zhiyuan8/go_sim.git
+git clone -- https://github.com/zhiyuan8/go_sim.git
 ```
-Using cd to Furthermore, complie all cpp files.
+Locates at the ```codes``` file. Then, complie all cpp files.
 ```
+cd go_sim/codes/
 g++ main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
 
 ```
@@ -41,16 +42,14 @@ In this way, ```GO_DAG``` is created. 	This process takes a while.
 
 ## Running the tests
 
-The ```test_data``` folder contains datasets as a demo. You can replace them with your json files, but remember to keep the file name as the same. Firstly, use ```cd``` in terminal to locate at ```codes``` folder, and examplary code has been given before. Secondly, create a ```result``` folder to store outputs, and then return to ```codes``` folder.
+The ```test_data``` folder contains datasets as a demo. You can replace them with your json files, but remember to keep the file name as the same. Now create a ```result``` folder.
 ```
 cd ..
 mkdir result
-cd ..
-cd codes
 ```
 Finally, input codes in terminal.
 ```
-./GO_DAG      /home/zhiyuan/Desktop/Json_files/data      /home/zhiyuan/Desktop/Json_files/result  100
+./GO_DAG      ./test_data      ./result  100
 ```
 The first argument enables terminal to run the code. The second and third arguments are paths for reading in and writing out files. The fourth number is a seed used in generating data. If you keep the seed number unchanged, you will get same outputs.
 
