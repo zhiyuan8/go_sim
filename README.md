@@ -13,17 +13,26 @@ g++ --version
 
 ### Installation
 
-In terminal, the followings enable you to install boost library which will be needed in calculating chi-square quantile and generating normal random variable.
+In terminal, firstly check if there exists boost library. Run the following codes:
+```
+locate /boost/version.hpp
+```
+If there exits boost library, then the path will be printed. For example, if it says "", then this line of code enables you to see your boost library version.
+
+```
+cat /home/zhiyuan/R/x86_64-pc-linux-gnu-library/3.2/BH/include/boost/version.hpp | grep "BOOST_LIB_VERSION"
+```
+The followings enable you to install boost library which will be needed in calculating chi-square quantile and generating normal random variable.
+
 ```
 sudo apt-get install libboost-all-dev
 ```
 
-Download the code to a location, for instance, your desktop. Next, extract zip file. (I cannot explain why 'git clone --recursive https://github.com/zhiyuan8/go_sim.git' cannot copy all files). 
-Then, use 'cd' to locate at the codes ```folder```. Here is a line of examplary code.
+Using ```cd``` to locate at the place where you will store the codes. Download the codes on github.
 ```
-cd Desktop/go_sim-master/codes/
+git clone --https://github.com/zhiyuan8/go_sim.git
 ```
-Furthermore, complie all cpp files.
+Using cd to Furthermore, complie all cpp files.
 ```
 g++ main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
 
