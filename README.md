@@ -85,7 +85,10 @@ The first argument enables terminal to run the code. The second and third argume
 noted, if you run my codes for a second time, the output in your first test will not be covered, and new output will be written at the end of previous results. So I suggest you copy the output .csv files in another path and delete them.
 
 ### Result plotting
-Go to ```drwa_R``` folder, open ```result_plot.R``` file. Remember to change my read_in path to the path where you store your data.
+Go to ```drwa_R``` folder, open ```result_plot.R``` file. Remember to change my read in path to the path where you store your data. For Self-contained (Sims) test, you could plot the following figures.
+![Test Image 1](https://github.com/zhiyuan8/go_sim/figures/Rplot01.png)
+![Test Image 2](https://github.com/zhiyuan8/go_sim/figures/Rplot03.png)
+![Test Image 3](https://github.com/zhiyuan8/go_sim/figures/Rplot05.png)
 
 
 ## Related publication
