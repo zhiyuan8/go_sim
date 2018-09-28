@@ -26,7 +26,7 @@ If boost library is not found, and you have the root access, you can easily inst
 ```
 sudo apt-get install libboost-all-dev
 ```
-If boost library is not found, and you don't have the root access, you can find install instructions at http://masumhabib.com/blog/how-to-install-the-boost-library-with-mpi-and-without-root-access/ //
+If boost library is not found, and you don't have the root access, you can find install instructions at http://masumhabib.com/blog/how-to-install-the-boost-library-with-mpi-and-without-root-access/ <br/>
 The following is as same as the link above says.
 
 
