@@ -84,6 +84,10 @@ Finally, input codes in terminal.
 The first argument enables terminal to run the code. The second and third arguments are paths for reading in and writing out files. The fourth number is a seed used in generating data. If you keep the seed number unchanged, you will get same outputs.
 noted, if you run my codes for a second time, the output in your first test will not be covered, and new output will be written at the end of previous results. So I suggest you copy the output .csv files in another path and delete them.
 
+### Result plotting
+Go to ```drwa_R``` folder, open ```result_plot.R``` file. Remember to change my read_in path to the path where you store your data.
+
+
 ## Related publication
 
 
