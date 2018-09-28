@@ -26,10 +26,27 @@ If boost library is not found, and you have the root access, you can easily inst
 ```
 sudo apt-get install libboost-all-dev
 ```
-If boost library is not found, and you don't have the root access, you can find install instructions at http://masumhabib.com/blog/how-to-install-the-boost-library-with-mpi-and-without-root-access/ <br/>
-The following is as same as the link above says.
-
-
+If boost library is not found, and you don't have the root access, you can find install instructions at http://masumhabib.com/blog/how-to-install-the-boost-library-with-mpi-and-without-root-access/  If you still cannot install it, contact me at zhiyuan.li1995@hotmail.com <br/>
+The following is as same as what the link above says. <br/>
+Download the latest version of boost source code from https://www.boost.org/users/download/  。 put it under /home/username/src folder and untar the archive.
+```
+cd ~/src
+tar -xvf name_of_boost_file
+```
+A new folder will be created. Change directory and use bootstrap.sh command.
+```
+cd name_of_boost_folder
+./bootstrap.sh --help
+./bootstrap.sh --show-libraries
+```
+To build Boost with MPI, use:
+```
+./bootstrap.sh --prefix=/home/username/usr --with-libraries=mpi
+```
+let's make and install it:
+```
+./b2 install | tee install.log
+```
 
 ### Installation 
 
@@ -53,9 +70,9 @@ g++ main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
 In this way, ```GO_DAG``` is created. 	This process takes a while.
 
 ## Customize your tests
-The ```test_data``` folder contains datasets as a demo. You can replace them with your json files, but remember to keep the file name as the same. 
-Open the file ```parameter.json```, in "report_metrics", there are four choices (1)"FDP"(2)"Power"(3)"NumRej"(4)"Data". They refer to (1) False Discovery Rate of two tests (2) Power of two tests (3) Node-specific power (4) original normal random variables in Self-contained and competitive tests. (1) and (2) are output mandatorily, and (3) and (4) are output if you type "NumRej" and "Data" in that json file.
-Also in the file ```parameter.json```, you can change "method_alpha" to other criteria, such as 0.05, and you can change  "eff_size" which means the effective size of non-null random variable ( For example, eff_size=0.5, non-null data ~ N(0.5, 1) ).
+The ```test_data``` folder contains datasets as a demo. You can replace them with your json files, but remember to keep the file name as the same.  <br/>
+Open the file ```parameter.json```, in "report_metrics", there are four choices (1)"FDP"(2)"Power"(3)"NumRej"(4)"Data". They refer to (1) False Discovery Rate of two tests (2) Power of two tests (3) Node-specific power (4) original normal random variables in Self-contained and competitive tests. (1) and (2) are output mandatorily, and (3) and (4) are output if you type "NumRej" and "Data" in that json file. <br/>
+Also in the file ```parameter.json```, you can change "method_alpha" to other criteria, such as 0.05, and you can change  "eff_size" which means the effective size of non-null random variable ( For example, eff_size=0.5, non-null data ~ N(0.5, 1) ). <br/>
 In  "oneway_params", "n_rep" means number of repeated experiments in each regime. "n_regimes" means number of regimes. For example,  {"n_regimes": 12, "n_reps": 100, "min_n": 10, "max_n": 120} means "There are 12 regimes, each one will be repeated 100 times with different randomness, and in each regime, number of cases = number of control = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120}"
 
 ## Running the tests
