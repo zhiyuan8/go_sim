@@ -86,9 +86,9 @@ noted, if you run my codes for a second time, the output in your first test will
 
 ### Result plotting
 Go to ```drwa_R``` folder, open ```result_plot.R``` file. Remember to change my read in path to the path where you store your data. For Self-contained (Sims) test, you could plot the following figures.
-![Test Image 1](go_sim/figures/Rplot01.png)
-![Test Image 2](go_sim/figures/Rplot03.png)
-![Test Image 3](go_sim/figures/Rplot05.png)
+![Test Image 1](https://github.com/zhiyuan8/go_sim/figures/Rplot01.png)
+![Test Image 2](https://github.com/zhiyuan8/go_sim/figures/Rplot03.png)
+![Test Image 3](https://github.com/zhiyuan8/go_sim/figures/Rplot05.png)
     
 
 ## Related publication
