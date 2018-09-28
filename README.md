@@ -17,16 +17,19 @@ Boost library is used in normal random variable generation and chi-square quanti
 ```
 locate /boost/version.hpp
 ```
-If there exits boost library, then the path will be printed. For example, "/home/zhiyuan/Downloads/boost_1_68_0/boost/version.hpp". Define the path as "path to boost", then this line of code enables you to see your boost library version.
+If there exits boost library, then the path will be printed. For example, "/home/zhiyuan/Downloads/boost_1_68_0/boost/version.hpp". Then this line of code enables you to see your boost library version. Remember to change the my path by your path.
 ```
-cat *path to boost* | grep "BOOST_LIB_VERSION"
+cat /home/zhiyuan/Downloads/boost_1_68_0/boost/version.hpp(change it!) | grep "BOOST_LIB_VERSION"
 ```
 If your boost library is installed, then you can skip this section. 
 If boost library is not found, and you have the root access, you can easily install it via following commands in terminal:
 ```
 sudo apt-get install libboost-all-dev
 ```
-If boost library is not found, and you don't have the root access, you can find install instructions at http://masumhabib.com/blog/how-to-install-the-boost-library-with-mpi-and-without-root-access/
+If boost library is not found, and you don't have the root access, you can find install instructions at http://masumhabib.com/blog/how-to-install-the-boost-library-with-mpi-and-without-root-access/ \\
+The following is as same as the link above says.
+
+
 
 ### Installation 
 
