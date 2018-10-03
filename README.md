@@ -25,11 +25,11 @@ If boost library is not found, and you don't have the root access, you can find 
 ### Installation 
 
 Use ```cd``` to locate at the place where you will download the codes. 
-If you clone the codes via HTTP (for example, you are using your PC).
+If you clone the codes via HTTP.
 ```
-git clone --https://github.com/zhiyuan8/go_sim.git
+git clone https://github.com/zhiyuan8/go_sim.git
 ```
-If you clone the codes via SSH (for example, your are running it on a remote server).
+Otherwise, if you clone the codes via SSH.
 ```
 git clone git@github.com:zhiyuan8/go_sim.git 
 ```
