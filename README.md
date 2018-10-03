@@ -33,16 +33,9 @@ Otherwise, if you clone the codes via SSH.
 ```
 git clone git@github.com:zhiyuan8/go_sim.git 
 ```
-Next, create ```result``` folder and go to ```codes``` folder.
+Link boost library and complie all cpp files. *path/boost_version* is the location where you download and extract boost library folder. For me, it is */home/zhiyuan/Downloads/boost_1_68_0*. If you forget where you downloaded, try ```whereis```, ```locate``` and ```find```.  
 ```
-mkdir result
-cd codes
-```
-Edit ```makefile``` to ensure the paths are right.
-
-complie all cpp files.
-```
-g++ main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
+g++ -I *path/boost_version* main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
 ```
 In this way, ```GO_DAG``` is created. 	This process takes a while.
 
@@ -56,7 +49,7 @@ In  "oneway_params", "n_rep" means number of repeated experiments in each regime
 
 Finally, input codes in terminal.
 ```
-./codes/GO_DAG      ./data      ./result  100
+./codes/GO_DAG      ./test_data      ./result  100
 ```
 The first argument enables terminal to run the code. The second and third arguments are paths for reading in and writing out files. The fourth number is a seed used in generating data. If you keep the seed number unchanged, you will get same outputs.
 noted, if you run my codes for a second time, the output in your first test will not be covered, and new output will be written at the end of previous results. So I suggest you copy the output .csv files in another path and delete them.
