@@ -8,15 +8,11 @@ Self-contained and competitive tests on simulated data. The two tests are used t
 g++ --version
 ```
 Foe example, in my computer it says ```g++ (Ubuntu 5.4.0-6ubuntu1~16.04.10) 5.4.0 20160609```. If g++ does not meet requirement, see this link for updating: https://askubuntu.com/questions/618474/how-to-install-the-latest-gcurrently-5-1-in-ubuntucurrently-14-04 <br/>
-(2) Boost >= 1.35, because in Boost 1.35, distribution libraries are added. The following codes help to check version
-```
-dpkg -s libboost-dev | grep 'Version'
-```
-For example, in my computer it says ```Version: 1.58.0.1ubuntu1``` which means my boost version is 1.58. If boost version does not meet requirement, see this link for updating: https://codeyarns.com/2013/12/27/how-to-upgrade-the-boost-library-on-ubuntu/
+(2) Boost >= 1.35, because in Boost 1.35, distribution libraries are added. In some PCs, you can use ```dpkg -s libboost-dev | grep 'Version'```  or ```locate boost```to check. A typical result can be ```Version: 1.58.0.1ubuntu1``` which means my boost version is 1.58. If boost version does not meet requirement, see this link for updating: https://codeyarns.com/2013/12/27/how-to-upgrade-the-boost-library-on-ubuntu/
 
-### Preparation (Install boost library)
+### Dependency (Install boost library)
 
-In previous step, if boost cannot be found and you have the root access, you can easily install it via following commands in terminal:
+In previous step, if boost cannot be found and you **have the root access**, you can easily install it via the command in terminal:
 ```
 sudo apt-get install libboost-all-dev
 ```
@@ -33,9 +29,9 @@ Otherwise, if you clone the codes via SSH.
 ```
 git clone git@github.com:zhiyuan8/go_sim.git 
 ```
-Link boost library and complie all cpp files. *path/boost_version* is the location where you download and extract boost library folder. For me, it is */home/zhiyuan/Downloads/boost_1_68_0*. If you forget where you downloaded, try ```whereis```, ```locate``` and ```find```.  
+Link boost library and complie all cpp files. **path/boost_version** is the location where you download and extract boost library folder. For me, it is **/home/zhiyuan/Downloads/boost_1_68_0**. If you forget where you downloaded, try ```whereis```, ```locate``` and ```find```, or google *How can I find boost C++*.  
 ```
-g++ -I   \*path/boost_version\*   main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
+g++ -I  path/boost_version   main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
 ```
 In this way, ```GO_DAG``` is created. 	This process takes a while.
 
@@ -58,7 +54,7 @@ noted, if you run my codes for a second time, the output in your first test will
 Go to ```drwa_R``` folder, open ```result_plot.R``` file. Remember to change my read in path to the path where you store your data. For Self-contained (Sims) test, you could plot the following figures.
 ![Test Image 1](https://github.com/zhiyuan8/go_sim/blob/master/figures/Rplot01.png)
 ![Test Image 2](https://github.com/zhiyuan8/go_sim/blob/master/figures/Rplot03.png)
-![Test Image 3](https://github.com/zhiyuan8/go_sim/blob/master/figures/Rplot05.png)
+![Test Image 3](https://github.com/zhiyuan8/go_sim/blob/master/figures/Rplot04.png)
     
 
 ## Related publication
