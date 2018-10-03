@@ -7,13 +7,14 @@ Self-contained and competitive tests on simulated data. The two tests are used t
 ```
 g++ --version
 ```
-If g++ does not meet requirement, see this link for updating: https://askubuntu.com/questions/618474/how-to-install-the-latest-gcurrently-5-1-in-ubuntucurrently-14-04 <br/>
+Foe example, in my computer it says ```g++ (Ubuntu 5.4.0-6ubuntu1~16.04.10) 5.4.0 20160609```. If g++ does not meet requirement, see this link for updating: https://askubuntu.com/questions/618474/how-to-install-the-latest-gcurrently-5-1-in-ubuntucurrently-14-04 <br/>
 (2) Boost >= 1.35, because in Boost 1.35, distribution libraries are added. The following codes help to check version
 ```
 dpkg -s libboost-dev | grep 'Version'
 ```
+For example, in my computer it says ```Version: 1.58.0.1ubuntu1``` which means my boost version is 1.58. If boost version does not meet requirement, see this link for updating: https://codeyarns.com/2013/12/27/how-to-upgrade-the-boost-library-on-ubuntu/
 
-### Before Installation (Install boost library)
+### Preparation (Install boost library)
 
 In previous step, if boost cannot be found and you have the root access, you can easily install it via following commands in terminal:
 ```
