@@ -24,7 +24,7 @@ If boost library is not found, and you don't have the root access, you can find 
 
 ### Installation 
 
-If you are running it on your PC, then use ```cd``` to locate at the place where you will store the codes. Download the codes on github.
+Use ```cd``` to locate at the place where you will download the codes. Clone the codes from github.
 ```
 git clone --https:github.com/zhiyuan8/go_sim.git
 ```
