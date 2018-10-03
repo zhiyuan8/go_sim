@@ -24,11 +24,12 @@ If boost library is not found, and you don't have the root access, you can find 
 
 ### Installation 
 
-Use ```cd``` to locate at the place where you will download the codes. Clone the codes from github.
+Use ```cd``` to locate at the place where you will download the codes. 
+If you clone the codes via HTTP (for example, you are using your PC).
 ```
-git clone --https:github.com/zhiyuan8/go_sim.git
+git clone --https://github.com/zhiyuan8/go_sim.git
 ```
-If you are running it on a remote server, download the codes on github.
+If you clone the codes via SSH (for example, your are running it on a remote server).
 ```
 git clone git@github.com:zhiyuan8/go_sim.git 
 ```
@@ -37,6 +38,8 @@ Next, create ```result``` folder and go to ```codes``` folder.
 mkdir result
 cd codes
 ```
+Edit ```makefile``` to ensure the paths are right.
+
 complie all cpp files.
 ```
 g++ main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
