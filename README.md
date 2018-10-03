@@ -3,56 +3,29 @@
 Self-contained and competitive tests on simulated data. The two tests are used to detect non-null gene.
 
 ### System Requirement
-g++ >= 4.2.1. (double check it! it is said g++ contains C++11 lib)
-https://stackoverflow.com/questions/7482026/can-i-use-the-latest-features-of-c11-in-xcode-4-or-osx-lion
-
-The following codes help to check version
+(1) g++ >= 4.6. (infomation from https://stackoverflow.com/questions/7482026/can-i-use-the-latest-features-of-c11-in-xcode-4-or-osx-lion) The following codes help to check version.
 ```
 g++ --version
 ```
+If g++ does not meet requirement, see this link for updating: https://askubuntu.com/questions/618474/how-to-install-the-latest-gcurrently-5-1-in-ubuntucurrently-14-04
+(2) Boost >= 1.35, because in Boost 1.35, distribution libraries are added. The following codes help to check version
+```
+dpkg -s libboost-dev | grep 'Version'
+```
 
-### Before Installation
+### Before Installation (Install boost library)
 
-Boost library is used in normal random variable generation and chi-square quantile calculation. In terminal, firstly check if there exists boost library. Run the following codes:
-```
-locate /boost/version.hpp
-```
-If there exits boost library, then the path will be printed. For example, "/home/zhiyuan/Downloads/boost_1_68_0/boost/version.hpp". Then this line of code enables you to see your boost library version. Remember to change the my path by your path.
-```
-cat /home/zhiyuan/Downloads/boost_1_68_0/boost/version.hpp(change it!) | grep "BOOST_LIB_VERSION"
-```
-If your boost library is installed, then you can skip this section. 
-If boost library is not found, and you have the root access, you can easily install it via following commands in terminal:
+In previous step, if boost cannot be found and you have the root access, you can easily install it via following commands in terminal:
 ```
 sudo apt-get install libboost-all-dev
 ```
-If boost library is not found, and you don't have the root access, you can find install instructions at http://masumhabib.com/blog/how-to-install-the-boost-library-with-mpi-and-without-root-access/  If you still cannot install it, contact me at zhiyuan.li1995@hotmail.com <br/>
-The following is as same as what the link above says. <br/>
-Download the latest version of boost source code from https://www.boost.org/users/download/  。 put it under /home/username/src folder and untar the archive.
-```
-cd ~/src
-tar -xvf name_of_boost_file
-```
-A new folder will be created. Change directory and use bootstrap.sh command.
-```
-cd name_of_boost_folder
-./bootstrap.sh --help
-./bootstrap.sh --show-libraries
-```
-To build Boost with MPI, use:
-```
-./bootstrap.sh --prefix=/home/username/usr --with-libraries=mpi
-```
-let's make and install it:
-```
-./b2 install | tee install.log
-```
+If boost library is not found, and you don't have the root access, you can find install instructions at http://masumhabib.com/blog/how-to-install-the-boost-library-with-mpi-and-without-root-access/  If you still cannot install it, contact me via zhiyuan.li1995@hotmail.com <br/>
 
 ### Installation 
 
 If you are running it on your PC, then use ```cd``` to locate at the place where you will store the codes. Download the codes on github.
 ```
-git clone --https://github.com/zhiyuan8/go_sim.git
+git clone --https:github.com/zhiyuan8/go_sim.git
 ```
 If you are running it on a remote server, download the codes on github.
 ```
