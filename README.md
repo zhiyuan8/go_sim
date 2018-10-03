@@ -35,7 +35,7 @@ git clone git@github.com:zhiyuan8/go_sim.git
 ```
 Link boost library and complie all cpp files. *path/boost_version* is the location where you download and extract boost library folder. For me, it is */home/zhiyuan/Downloads/boost_1_68_0*. If you forget where you downloaded, try ```whereis```, ```locate``` and ```find```.  
 ```
-g++ -I *path/boost_version* main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
+g++ -I   \*path/boost_version\*   main.cpp generate_data.cpp io.cpp tests.cpp utils.cpp -o GO_DAG -std=c++11
 ```
 In this way, ```GO_DAG``` is created. 	This process takes a while.
 
